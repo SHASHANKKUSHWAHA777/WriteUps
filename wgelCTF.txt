@@ -1,0 +1,9 @@
+i wanted the user flag and root flag 
+i had the lab machine ip of user named jessie 
+now to ssh jessie's machine , i need a private key or a password . i went for the private key .
+i enumerated the directories of jessie's machine's ip and got a directory as .ssh in sitemap directory. that .ssh dir had a file named id_rsa which had the private key.
+on opening ........../sitemap/.ssh/id_rsa , i got the private key.
+i bundled that key in a file named id_rsa , changed it permission to only user readable and writable using chmod 600 id_rsa and performed the ssh.
+for ssh , ised the command "ssh -i id_rsa jessie@ip" in the directory which contained the id_rsa file which i made.
+i got the access to jessie's machine and in the Documents folder of /home/jessie was the user_flag.txt and BOOM!
+
