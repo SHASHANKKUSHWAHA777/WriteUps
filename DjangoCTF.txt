@@ -1,0 +1,32 @@
+So basically there was this django server running at port 8000
+i wanted a user flag , a admin panel flag and a hidden flag 
+
+i did an nmap on machine ip using:
+
+nmap -sC -sV -Pn machine_ip 
+
+and found that port 22 was open along with port 8000 . 22 was ssh and 8000 was running a web service.
+
+i did SSH using the provided credentials and found user flag inside StrangeFox directory , a dir other than django-admin dir
+.
+then i tried to open the web page using http://machine_ip/8000 , but this machine ip was not allowed in the "ALLOWED_LIST" present in settings.py
+
+i edited settings.py using nano .
+Btw settings.py was found on the ssh terminal inside the messagebox dir . it had 2 messagebox dirs one inside another . 
+
+i put the machine ip in the "ALLOWED_LIST" and then connected , and machine_ip:8000 finally opened on web.
+
+i enumerated the web accessible directories and found an admin page.
+
+i created a superuser using :
+
+python3 manage.py createsuperuser 
+
+and made an username and pass . using this username and pass , i logged in admin portal .
+inside admin portal i found the admin flag in users directory . 
+
+Now for the hidden flag , i discovered an html file in messagebox dir , a dir inside messagebox . yes there are 2 messagebox dir as mentioend above.
+
+i did : cat xyzd.html 
+
+and BOOM , got the hidden flag too.
